@@ -1,8 +1,60 @@
-﻿@{
+﻿@using IT_Elective_2___11.Models
+@{
     ViewData["Title"] = "Home Page";
+
+    var students = new List<Student>
+    {
+        new Student("Juan", "Dela Cruz") { Title = "Mr.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2002, 5, 15) },
+        new Student("Maria", "Santos")    { Title = "Ms.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2001, 3, 10) },
+        new Student("Pedro", "Gomez")     { Title = "Mr.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2003, 1, 25) },
+        new Student("Anna", "Reyes")      { Title = "Ms.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2002, 7, 5) },
+        new Student("Leo", "Torres")      { Title = "Mr.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2002, 8, 20) },
+        new Student("Grace", "Lim")       { Title = "Ms.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2001, 12, 12) },
+        new Student("James", "Uy")        { Title = "Mr.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2003, 4, 18) },
+        new Student("Nina", "Lee")        { Title = "Ms.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2002, 6, 30) },
+        new Student("Carl", "Tan")        { Title = "Mr.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2003, 9, 9) },
+        new Student("Lara", "Mendoza")    { Title = "Ms.", Course = "BSIT", Section = "11A", Birthday = new DateTime(2002, 11, 22) },
+    };
+
+    // Set genders using the method (as required)
+    students[0].SetGender(Gender.Male);
+    students[1].SetGender(Gender.Female);
+    students[2].SetGender(Gender.Male);
+    students[3].SetGender(Gender.Female);
+    students[4].SetGender(Gender.Male);
+    students[5].SetGender(Gender.Female);
+    students[6].SetGender(Gender.Male);
+    students[7].SetGender(Gender.Female);
+    students[8].SetGender(Gender.Male);
+    students[9].SetGender(Gender.Female);
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Student List</h1>
 </div>
+
+<table class="table table-bordered table-striped mt-4">
+    <thead class="thead-dark">
+        <tr>
+            <th>Full Name</th>
+            <th>Gender</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th>Birthday</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in students)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.Gender</td>
+                <td>@student.Course</td>
+                <td>@student.Section</td>
+                <td>@student.Birthday.ToString("yyyy-MM-dd")</td>
+                <td>@student.Age</td>
+            </tr>
+        }
+    </tbody>
+</table>
