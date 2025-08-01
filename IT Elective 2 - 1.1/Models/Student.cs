@@ -2,7 +2,6 @@
 
 namespace IT_Elective_2___11.Models
 {
-    // ✅ Gender enum definition
     public enum Gender
     {
         Unknown,
@@ -12,12 +11,10 @@ namespace IT_Elective_2___11.Models
 
     public class Student
     {
-        // 🔒 Private fields
         private string firstName;
         private string lastName;
         private Gender gender = Gender.Unknown;
 
-        // 📦 Public properties
         public string Title { get; set; }
         public string Course { get; set; }
         public string Section { get; set; }
@@ -59,7 +56,6 @@ namespace IT_Elective_2___11.Models
             Birthday = DateTime.Today;
         }
 
-        // 🧪 Setters
         public void SetFirstName(string firstName)
         {
             this.firstName = firstName;
